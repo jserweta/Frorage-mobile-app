@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 object RetrofitClient {
     private val gson = GsonBuilder()
             /*yyyy-MM-dd'T'HH:mm:ss.SSS'Z'*/
-        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+        .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
         .create()
 
     private val retrofit = Retrofit.Builder()

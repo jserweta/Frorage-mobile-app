@@ -123,7 +123,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                                 startActivity(intent)
                                 Toast.makeText(applicationContext, "Welcome $regName!", Toast.LENGTH_LONG).show() //lub response.body()?.status
                             }else{
-                                Toast.makeText(applicationContext, response.message(), Toast.LENGTH_LONG).show()
+                                Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
                             }
 
                         }
