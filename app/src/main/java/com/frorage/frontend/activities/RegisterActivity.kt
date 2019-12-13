@@ -122,8 +122,10 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                                 val intent = Intent(this@RegisterActivity, KitchenCreator::class.java)
                                 startActivity(intent)
                                 Toast.makeText(applicationContext, "Welcome $regName!", Toast.LENGTH_LONG).show() //lub response.body()?.status
-                            }else{
+                            }else if (response.code() == 400){
                                 Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                            }else{
+                                Toast.makeText(applicationContext, response.code(), Toast.LENGTH_LONG).show()
                             }
 
                         }

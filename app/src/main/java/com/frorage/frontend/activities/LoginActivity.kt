@@ -84,9 +84,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
                                 Toast.makeText(applicationContext, "Welcome!", Toast.LENGTH_LONG).show()
-                            } else {
+                            } else if (response.code() == 401){
                                 Toast.makeText(
-                                    applicationContext, "Email or password is not correct!"+ response.code(), Toast.LENGTH_LONG).show()
+                                    applicationContext, /*"Email or password is not correct!"*/ response.body()?.loginResponse!!.message, Toast.LENGTH_LONG).show()
+                            }else if(response.code() == 400){
+                                Toast.makeText(applicationContext, "Bad request"+ response.code(), Toast.LENGTH_LONG).show()
                             }
                         }
 
