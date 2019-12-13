@@ -10,9 +10,9 @@ import com.frorage.frontend.R
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class KitchenCreator : AppCompatActivity(), View.OnClickListener{
+class KitchenCreator : AppCompatActivity() /*View.OnClickListener*/{
 
-    //private var btnBack: ImageButton? = null
+    /*//private var btnBack: ImageButton? = null
     private var btnCreateOrJoin: AppCompatButton? = null
     private var doCreate: CheckBox? = null
 
@@ -21,21 +21,21 @@ class KitchenCreator : AppCompatActivity(), View.OnClickListener{
     private var kitchenName: TextInputEditText? = null
     private var kitchenPassword: TextInputEditText? = null
 
-    private lateinit var inputValidation: InputValidation
+    private lateinit var inputValidation: InputValidation*/
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kitchen_creator)
 
-        initViews()
+        /*initViews()
 
         initListeners()
 
-        initObjects()
+        initObjects()*/
     }
 
-    private fun initObjects() {
+   /* private fun initObjects() {
         inputValidation = InputValidation(this@KitchenCreator)
     }
 
@@ -59,15 +59,15 @@ class KitchenCreator : AppCompatActivity(), View.OnClickListener{
     }
 
     override fun onClick(v: View) {
-        when(v.id){
+        *//*when(v.id){
             R.id.btn_let_frorage ->{
                 verifyInputData()
             }
-        }
+        }*//*
     }
 
     private fun verifyInputData() {
 
-    }
+    }*/
 
 }

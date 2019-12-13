@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatButton
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.frorage.frontend.InputValidation
 import com.frorage.frontend.R
-import com.frorage.frontend.api.RetrofitClien
+import com.frorage.frontend.api.RetrofitClient
 import com.frorage.frontend.model.Model
 import com.frorage.frontend.storage.SharedPrefMenager
 import com.google.android.material.textfield.TextInputEditText
@@ -59,11 +59,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 val logEmail = log_email.text.toString().trim()
                 val logPassword = log_password.text.toString().trim()
 
-                RetrofitClien.frorageApi.login(
+                val call = RetrofitClient.userApi.login(
                     logPassword,
                     logEmail
                 )
-                    .enqueue(object : Callback<Model.Token> {
+                    call.enqueue(object : Callback<Model.Token> {
                         override fun onFailure(call: Call<Model.Token>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                         }
@@ -86,7 +86,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                 Toast.makeText(applicationContext, "Welcome!", Toast.LENGTH_LONG).show()
                             } else {
                                 Toast.makeText(
-                                    applicationContext, "Email or password is not correct!", Toast.LENGTH_LONG).show()
+                                    applicationContext, "Email or password is not correct!"+ response.code(), Toast.LENGTH_LONG).show()
                             }
                         }
 
@@ -170,7 +170,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     }
 
 
-    override fun onStart() {
+    /*override fun onStart() {
         super.onStart()
 
         if (SharedPrefMenager.getInstance(this).isLoggedIn) {
@@ -178,7 +178,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
-    }
+    }*/
 
 }
 

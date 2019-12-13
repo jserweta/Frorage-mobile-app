@@ -11,7 +11,7 @@ import androidx.appcompat.widget.AppCompatCheckBox
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.frorage.frontend.InputValidation
 import com.frorage.frontend.R
-import com.frorage.frontend.api.RetrofitClien
+import com.frorage.frontend.api.RetrofitClient
 import com.frorage.frontend.model.Model
 import com.frorage.frontend.storage.SharedPrefMenager
 import com.google.android.material.textfield.TextInputEditText
@@ -38,7 +38,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private var agreementsAccept: AppCompatCheckBox? = null
     private var btnRegister: AppCompatButton? = null
     private var btnBack: ImageButton? = null
-    private val client =OkHttpClient()
+   // private val client =OkHttpClient()
 
     private lateinit var inputValidation: InputValidation
 
@@ -99,12 +99,12 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 //tokenInterceptorObj.instance.register(
                 /*RetrofitClient*//*RetrofitConnection.service.register(*/
 
-                RetrofitClien.frorageApi.register(
+                val call = RetrofitClient.userApi.register(
                     regEmail,
                     regPassword,
                     regName
                 )
-                    .enqueue(object : Callback<Model.RegisterResponse> {
+                    call.enqueue(object : Callback<Model.RegisterResponse> {
                         override fun onFailure(call: Call<Model.RegisterResponse>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                         }
@@ -123,7 +123,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                                 startActivity(intent)
                                 Toast.makeText(applicationContext, "Welcome $regName!", Toast.LENGTH_LONG).show() //lub response.body()?.status
                             }else{
-                                Toast.makeText(applicationContext, response.raw()?.message(), Toast.LENGTH_LONG).show()
+                                Toast.makeText(applicationContext, response.message(), Toast.LENGTH_LONG).show()
                             }
 
                         }
