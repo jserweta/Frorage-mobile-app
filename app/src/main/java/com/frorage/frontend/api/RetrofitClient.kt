@@ -21,6 +21,7 @@ object RetrofitClient {
             val original = chain.request()
 
             val requestBuilder = original.newBuilder()
+                .header("Content-Type", "application/json")
                 .header("Authorization", "")
 
             val request = requestBuilder.build()

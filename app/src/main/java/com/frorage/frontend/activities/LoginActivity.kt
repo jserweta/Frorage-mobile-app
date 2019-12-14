@@ -16,6 +16,7 @@ import com.frorage.frontend.storage.SharedPrefMenager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_login.*
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -60,8 +61,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 val logPassword = log_password.text.toString().trim()
 
                 val call = RetrofitClient.userApi.login(
-                    logPassword,
-                    logEmail
+                    Model.UserRequestObj(logPassword, logEmail)
                 )
                     call.enqueue(object : Callback<Model.Token> {
                         override fun onFailure(call: Call<Model.Token>, t: Throwable) {
@@ -72,9 +72,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                             call: Call<Model.Token>,
                             response: Response<Model.Token>
                         ) {
-                            if (response.code() == 201) {
-                                SharedPrefMenager.getInstance(applicationContext)
-                                    .saveToken(response.body()?.loginResponse!!)
+                            if (response.code() == 200) {
+                                /*SharedPrefMenager.getInstance(applicationContext)
+                                    .saveToken(response.body()?.loginResponse!!)*/
 
                                /* val tokenInterceptor = TokenInterceptor(
                                     SharedPrefMenager.getInstance(applicationContext).token
@@ -89,7 +89,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                     applicationContext, /*"Email or password is not correct!"*/ response.body()?.loginResponse!!.message, Toast.LENGTH_LONG).show()
                             }else if(response.code() == 400){
                                 Toast.makeText(applicationContext, "Bad request"+ response.code(), Toast.LENGTH_LONG).show()
-                            }
+                            }/*else{
+                                Toast.makeText(applicationContext, response.code(), Toast.LENGTH_LONG).show()
+                            }*/
                         }
 
                     })

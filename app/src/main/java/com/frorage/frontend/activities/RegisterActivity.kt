@@ -100,9 +100,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                 /*RetrofitClient*//*RetrofitConnection.service.register(*/
 
                 val call = RetrofitClient.userApi.register(
-                    regEmail,
-                    regPassword,
-                    regName
+                    Model.RegisterRequestObj(regEmail, regPassword, regName)
                 )
                     call.enqueue(object : Callback<Model.RegisterResponse> {
                         override fun onFailure(call: Call<Model.RegisterResponse>, t: Throwable) {
@@ -218,7 +216,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         }*/
     }
 
-    override fun onStart() {
+    /*override fun onStart() {
         super.onStart()
 
         if (SharedPrefMenager.getInstance(this).isLoggedIn) {
@@ -226,7 +224,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
         }
-    }
+    }*/
 }
 
 

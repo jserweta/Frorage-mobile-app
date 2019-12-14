@@ -1,27 +1,21 @@
 package com.frorage.frontend.api
 
+import android.provider.ContactsContract
 import com.frorage.frontend.model.Model
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface FrorageApiInterface {
-    @FormUrlEncoded
+
     @POST(Url.REGISTER_URL)
     @Headers("Content-Type:application/json")
     fun register(
-        @Field("email") email:String,
-        @Field("password") password:String,
-        @Field("username") username:String
+        @Body register: Model.RegisterRequestObj
     ):Call<Model.RegisterResponse>
 
-    @FormUrlEncoded
     @POST(Url.LOGIN_URL)
     @Headers("Content-Type:application/json")
     fun login(
-        @Field("password") password: String,
-        @Field("usernameOrEmail") username: String
+        @Body user: Model.UserRequestObj
     ):Call<Model.Token>
 }
