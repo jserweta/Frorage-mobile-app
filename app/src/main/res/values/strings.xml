@@ -23,9 +23,13 @@
     <string name="error_message_password">Password must be >8 characters</string>
     <string name="error_message_email_empty">Enter Email</string>
     <string name="error_message_name_empty">Enter name</string>
+    <string name="error_message_access_token_empty">Enter confirmation code</string>
     <string name="error_message_name">Name must be >3 characters</string>
     <string name="error_message_agreements">This field is required</string>
     <string name="confirm_password">Confirm password</string>
     <string name="error_password_match">Password does not matches</string>
+    <string name="confirm_account">Confirm account</string>
+    <string name="confirm_code">Confirmation code</string>
+    <string name="resend_email">You didn\'t get any email? Resend!</string>
 
 </resources>

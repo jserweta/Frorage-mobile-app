@@ -17,7 +17,6 @@ import com.frorage.frontend.storage.SharedPrefMenager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_register.*
-import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -117,11 +116,15 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
                                 )
                                 tokenInterceptorObj.setupRetrofilt(tokenInterceptor)*/
 
-                                val intent = Intent(this@RegisterActivity, KitchenCreator::class.java)
+                                SharedPrefMenager.getInstance(applicationContext)
+                                    .saveEmail(response.body()?.user!!.email)
+
+                                val intent = Intent(this@RegisterActivity, ConfirmAccountActivity::class.java)
                                 startActivity(intent)
                                 Toast.makeText(applicationContext, "Welcome $regName!", Toast.LENGTH_LONG).show() //lub response.body()?.status
                             }else if (response.code() == 400){
-                                Toast.makeText(applicationContext, response.body()?.message, Toast.LENGTH_LONG).show()
+                                //TODO("Change message for 400 code response")
+                                Toast.makeText(applicationContext, response.body()?.status, Toast.LENGTH_LONG).show()
                             }else{
                                 Toast.makeText(applicationContext, response.code(), Toast.LENGTH_LONG).show()
                             }

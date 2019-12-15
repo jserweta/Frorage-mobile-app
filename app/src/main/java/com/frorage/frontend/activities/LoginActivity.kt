@@ -16,7 +16,6 @@ import com.frorage.frontend.storage.SharedPrefMenager
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.activity_login.*
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -30,10 +29,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private var logEmail: TextInputEditText? = null
     private var logPassword: TextInputEditText? = null
-    private var btnRegister: Button? = null
-    private var btnLogin: Button? = null
+    private var btnRegister: AppCompatButton? = null
+    private var btnLogin: AppCompatButton? = null
 
     private lateinit var inputValidation: InputValidation
+   // private lateinit var sharedPrefMeneger: SharedPrefMenager
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -63,16 +63,17 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 val call = RetrofitClient.userApi.login(
                     Model.UserRequestObj(logPassword, logEmail)
                 )
-                    call.enqueue(object : Callback<Model.Token> {
-                        override fun onFailure(call: Call<Model.Token>, t: Throwable) {
+                    call.enqueue(object : Callback<Model.LoginResponse> {
+                        override fun onFailure(call: Call<Model.LoginResponse>, t: Throwable) {
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                         }
 
                         override fun onResponse(
-                            call: Call<Model.Token>,
-                            response: Response<Model.Token>
+                            call: Call<Model.LoginResponse>,
+                            response: Response<Model.LoginResponse>
                         ) {
                             if (response.code() == 200) {
+
                                 /*SharedPrefMenager.getInstance(applicationContext)
                                     .saveToken(response.body()?.loginResponse!!)*/
 
@@ -83,10 +84,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                 val intent = Intent(this@LoginActivity, MyItemsActivity::class.java)
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                                 startActivity(intent)
-                                Toast.makeText(applicationContext, "Welcome!", Toast.LENGTH_LONG).show()
+                                Toast.makeText(applicationContext, "Welcome!"+ response.body()?.accessToken, Toast.LENGTH_LONG).show()
                             } else if (response.code() == 401){
                                 Toast.makeText(
-                                    applicationContext, /*"Email or password is not correct!"*/ response.body()?.loginResponse!!.message, Toast.LENGTH_LONG).show()
+                                    applicationContext, "Email or password is not correct!" /*response.body()?.message*/, Toast.LENGTH_LONG).show()
                             }else if(response.code() == 400){
                                 Toast.makeText(applicationContext, "Bad request"+ response.code(), Toast.LENGTH_LONG).show()
                             }/*else{
@@ -170,7 +171,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun initObjects() {
         inputValidation = InputValidation(this@LoginActivity)
-
     }
 
 

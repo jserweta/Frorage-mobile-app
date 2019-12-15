@@ -5,27 +5,44 @@ import com.frorage.frontend.model.Model
 
 class SharedPrefMenager private constructor(private val mCtx: Context) {
 
-    val isLoggedIn: Boolean
+   val isLoggedIn: Boolean
         get() {
             val sharedPreferances = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
             return sharedPreferances.getInt("id", -1) != -1
         }
 
-    val token: String
+    val email: String
+        get() {
+            val sharedPreferances = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+            return sharedPreferances.getString("email","")!!
+        }
+
+    fun saveEmail(email: String){
+        val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        editor.putString("email", email)
+        editor.apply()
+    }
+    /*
+    val token: Model.LoginResponse
         get() {
             val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
-            val access = sharedPreferences.getString("accessToken", null)!!
+            return Model.LoginResponse {
+                sharedPreferences.getString("tokenType", null),
+                sharedPreferences.getString("accessToken", null)
+            }
+            *//*val access = sharedPreferences.getString("accessToken", null)!!
             val type = sharedPreferences.getString("tokenType", null)!!
-            return "$type $access"
-        }
+            return "$type $access"*//*
+        }*/
 
     fun saveToken(token: Model.LoginResponse){
         val sharedPreferences = mCtx.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
 
-        editor.putString("accessToken", token.accessToken)
         editor.putString("tokenType", token.tokenType)
-
+        editor.putString("accessToken", token.accessToken)
         editor.apply()
     }
 

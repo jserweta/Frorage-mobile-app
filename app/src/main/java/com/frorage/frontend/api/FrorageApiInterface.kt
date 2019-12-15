@@ -17,5 +17,17 @@ interface FrorageApiInterface {
     @Headers("Content-Type:application/json")
     fun login(
         @Body user: Model.UserRequestObj
-    ):Call<Model.Token>
+    ):Call<Model.LoginResponse>
+
+    @POST(Url.CONFIRM_ACCOUNT)
+    @Headers("Content-Type:application/json")
+    fun confirmAcc(
+        @Body token: Model.ConfirmToken
+    ):Call<Model.GeneralResponse>
+
+    @POST(Url.RESEND_EMAIL)
+    @Headers("Content-Type:application/json")
+    fun resendEmail(
+        @Body email: Model.ResendEmail
+    ):Call<Model.GeneralResponse>
 }

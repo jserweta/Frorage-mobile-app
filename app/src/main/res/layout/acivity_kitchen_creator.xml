@@ -8,7 +8,7 @@
     android:background="@drawable/im_background"
     android:backgroundTint="#8C383434"
     android:backgroundTintMode="screen"
-    tools:context=".activities.KitchenCreator">
+    tools:context=".activities.ConfirmAccountA">
 
     <!-- Return button -->
     <ImageButton
