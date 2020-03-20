@@ -16,3 +16,13 @@ Aplikacja mobilna na platformę Android, stworzona na potrzeby projektu z przedm
 ## Api documentation:
 
 `http://localhost:8080/docs`
+
+## Project documentation
+
+![PDF](https://github.com/jserweta/FrorageMobileApp/blob/master/Dokumentacja.pdf)
+
+## Screenshots:
+
+![Screenshot](https://github.com/jserweta/FrorageMobileApp/blob/master/loginScreen.jpg)
+
+![Screenshot](https://github.com/jserweta/FrorageMobileApp/blob/master/productsScreen.jpg)
