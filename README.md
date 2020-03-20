@@ -19,7 +19,7 @@ Aplikacja mobilna na platformę Android, stworzona na potrzeby projektu z przedm
 
 ## Project documentation
 
-![PDF](https://github.com/jserweta/FrorageMobileApp/blob/master/Dokumentacja.pdf)
+[Link here!](https://github.com/jserweta/FrorageMobileApp/blob/master/Dokumentacja.pdf)
 
 ## Screenshots:
 
