@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:weightSum="2"
+        android:layout_marginTop="10dp"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/buyButton"
+            android:layout_marginTop="10dp"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="140dp"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:layout_marginStart="30dp"
+            android:background="@color/orange"
+            android:text="Purchased"/>
+
+        <Button
+            android:id="@+id/addButton"
+            style="@style/Widget.MaterialComponents.Button.Icon"
+
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:drawableLeft="@drawable/ic_add"
+            android:text="" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</LinearLayout>

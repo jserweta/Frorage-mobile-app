@@ -1,0 +1,60 @@
+<resources>
+
+    <string name="app_name">Frorage</string>
+    <string name="sign_in">Sign in</string>
+    <string name="register">Register</string>
+
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+
+    <string name="prompt_password">Password</string>
+
+    <string name="invalid_username">Not a valid username</string>
+
+
+    <string name="title_activity_register">Register</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="agreements_accept">Accept all agreements</string>
+    <string name="lets_frorage">Let\'s FRORAGE</string>
+    <string name="switch_create">Do you want create new or join another kitchen?</string>
+    <string name="kitchen_name">Kitchen name</string>
+    <string name="create_or_join">Create or join existing kitchen</string>
+    <string name="error_message_email">Enter Valid Email</string>
+    <string name="error_message_password_empty">Enter Password</string>
+    <string name="error_message_password">Password must be at least 8 characters long</string>
+    <string name="error_message_email_empty">Enter Email</string>
+    <string name="error_message_name_empty">Enter name</string>
+    <string name="error_message_access_token_empty">Enter confirmation code</string>
+    <string name="error_message_name">Name must be >3 characters</string>
+    <string name="error_message_agreements">This field is required</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="error_password_match">Password does not matches</string>
+    <string name="confirm_account">Confirm account</string>
+    <string name="confirm_code">Confirmation code</string>
+    <string name="resend_email">I didn\'t get any email! Please resend!</string>
+    <string name="select_kitchen">Select from your kitchen list</string>
+    <string name="shopping_list">shopping list</string>
+    <string name="my_items">my products</string>
+    <string name="recipes">recipes</string>
+
+    <string name="kitchen_menager">Kitchen manager</string>
+    <string name="log_out">Log out</string>
+    <string name="close_app">Close app</string>
+    <string name="user_manager">User manager</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="general">General</string>
+    <string name="change_kitchen">Change kitchen</string>
+    <string name="select">Select</string>
+    <string name="update_password">Change password</string>
+    <string name="prompt_old_password">Old password</string>
+    <string name="prompt_new_password">New password</string>
+    <string name="delete_account">Delete my account</string>
+    <string name="diffrent_old_pass">Now you have different password</string>
+    <string name="select_kitchen_2">Select kitchen</string>
+    <string name="delete_kitchen">Delete kitchen</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

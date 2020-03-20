@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1F1D1D</color>
+    <color name="colorPrimaryDark">#424242</color>
+    <color name="colorAccent">#F6A913</color>
+
+    <color name="orange">#F6A913</color>
+    <color name="orange_transparent">#4BF6A913</color>
+    <color name="veryLightGrey">#DF9B9A9A</color>
+    <color name="darkBrown">#1F1D1D</color>
+    <color name="grey">#474545</color>
+    <color name="white">#FFFFFF</color>
+    <color name="transparentWhite">#7AFFFFFF</color>
+
+    <color name="bg_inputs">#A61F1D1D</color>
+    <color name="transparent">#001F1D1D</color>
+</resources>
