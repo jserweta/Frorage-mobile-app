@@ -1,5 +1,5 @@
 # FrorageMobileApp
-Aplikacja mobilna na platformę Android, stworzona na potrzeby projektu grupowego z przedmiotu Inżynieria Oprogramowania.
+Aplikacja mobilna na platformę Android, stworzona na potrzeby projektu z przedmiotu Inżynieria Oprogramowania.
 
 ## To run server:
 
